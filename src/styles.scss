@@ -1,1 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@use 'tailwindcss';
+
+html {
+  height: 100%;
+  @include mat.theme((
+    color: (
+      primary: mat.$blue-palette,
+      tertiary: mat.$yellow-palette,
+    ),
+    typography: (
+      plain-family: 'Inter',
+      brand-family: 'Inter',
+      bold-weight: 700,
+      medium-weight: 500,
+      regular-weight: 400
+    ),
+    density: 0,
+  ));
+}
+
+
+body {
+  color-scheme: light;
+  background-color: #ffffff;
+  color: #111827;
+  font: var(--mat-sys-body-medium);
+  margin: 0;
+  height: 100%;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+}
+
+// Botones
+button[mat-button], button[mat-flat-button], button[mat-stroked-button] {
+  @include mat.button-overrides((
+    filled-container-shape: 9999px,
+    outlined-container-shape: 9999px,
+    text-container-shape: 9999px,
+
+    filled-horizontal-padding: 24px,
+    outlined-horizontal-padding: 24px,
+
+    filled-container-height: 44px,
+    outlined-container-height: 44px,
+  ));
+}
